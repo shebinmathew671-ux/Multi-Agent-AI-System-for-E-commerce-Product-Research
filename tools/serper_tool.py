@@ -92,19 +92,25 @@ def search_shopping(query: str, num_results: int = MAX_RESULTS) -> list[dict]:
 
 def search_amazon_products(category: str) -> list[dict]:
     """Search Amazon products for a given category."""
-    query = f"site:amazon.com {category} best seller reviews price"
+    from datetime import datetime
+    current_year = datetime.now().year
+    query = f"site:amazon.com {category} product pricing {current_year}"
     return search_web(query)
 
 
 def search_amazon_reviews(product: str) -> list[dict]:
     """Search Amazon reviews for a product."""
-    query = f"amazon {product} customer reviews pros cons complaints 2024"
+    from datetime import datetime
+    current_year = datetime.now().year
+    query = f"amazon {product} customer reviews pros cons complaints {current_year}"
     return search_web(query)
 
 
 def search_market_trends(category: str) -> list[dict]:
     """Search market trends for a category."""
-    query = f"{category} market trends growth statistics 2024 2025"
+    from datetime import datetime
+    current_year = datetime.now().year
+    query = f"{category} market trends growth statistics {current_year}"
     return search_web(query)
 
 
